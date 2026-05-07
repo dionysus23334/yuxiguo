@@ -5,6 +5,26 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-primary: 24 24 27;
+    --color-secondary: 63 63 70;
+    --color-accent: 37 99 235;
+    --color-muted: 113 113 122;
+    --color-surface: 250 250 250;
+    --color-panel: 255 255 255;
+    --color-border: 228 228 231;
+  }
+
+  .dark {
+    --color-primary: 244 244 245;
+    --color-secondary: 212 212 216;
+    --color-accent: 96 165 250;
+    --color-muted: 161 161 170;
+    --color-surface: 18 18 20;
+    --color-panel: 28 28 31;
+    --color-border: 63 63 70;
+  }
+
   * {
     @apply box-border;
   }
@@ -51,18 +71,4 @@
   .animate-delay-600 { animation-delay: 600ms; }
 
   .opacity-0 { opacity: 0; }
-
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
 }
