@@ -59,13 +59,20 @@ const NAV_LINKS: NavItem[] = [
   { id: 'contact', label: { en: 'Contact', zh: '联系' } },
 ]
 
+const EYEBROWS = {
+  hero: 'Researcher · Developer · Builder',
+  about: 'Background',
+  research: 'Academic Work',
+  publications: 'Scholarly Output',
+  projects: 'Building Things',
+  contact: "Let's Connect",
+}
+
 const COPY = {
   en: {
-    eyebrow: 'Researcher · Developer · Builder',
     intro: 'MIS student at SWUFE-University of Delaware, focused on NLP, Transformer interpretability, and model compression. Published researcher with experience across China, Canada, the UK, and the US.',
     primaryCta: 'View Research',
     secondaryCta: 'Get in Touch',
-    scroll: 'scroll',
     stats: [
       ['6+', 'Research Projects'],
       ['1', 'Publication (ACE)'],
@@ -75,7 +82,6 @@ const COPY = {
     theme: 'Theme',
     language: '中文',
     photoAlt: 'Portrait of Yuxi Guo',
-    aboutLabel: 'Background',
     aboutTitle: 'About Me',
     about: [
       "I'm a fourth-year student in the joint program between Southwestern University of Finance and Economics (SWUFE) and the University of Delaware, pursuing dual degrees in Management Information Systems.",
@@ -85,28 +91,22 @@ const COPY = {
     education: 'Education',
     skillTitle: 'Technical Skills',
     awardsTitle: 'Recognition',
-    researchLabel: 'Academic Work',
     researchTitle: 'Research Experience',
-    publicationLabel: 'Scholarly Output',
     publicationTitle: 'Publications',
     publicationMeta: 'Applied and Computational Engineering · Vol. 76 · 2024',
     publicationName: 'Interpretability Analysis in Transformers Based on Attention Visualization',
     publicationDesc: 'Guo, Yuxi. (2024). Applied and Computational Engineering, 76, pp. 92-102. A study of Transformer interpretability using attention visualization techniques across multiple model architectures.',
     manuscript: 'Manuscript on Greedy-Gnorm head pruning in preparation for JMLR submission.',
-    projectLabel: 'Building Things',
     projectTitle: 'Projects & Internships',
-    contactLabel: "Let's Connect",
     contactTitle: 'Get in Touch',
     contactIntro: "Whether you're interested in research collaboration, internship opportunities, or want to discuss NLP and ML, feel free to reach out.",
     form: ['Name', 'Email', 'Message', 'Send Message'],
     footer: 'SWUFE-UD · MIS · NLP Researcher',
   },
   zh: {
-    eyebrow: '研究者 · 开发者 · 建造者',
     intro: '西南财经大学-特拉华大学 MIS 联合项目学生，关注自然语言处理、Transformer 可解释性与模型压缩。曾参与中国、加拿大、英国和美国相关研究项目。',
     primaryCta: '查看研究',
     secondaryCta: '联系我',
-    scroll: '向下',
     stats: [
       ['6+', '研究项目'],
       ['1', 'ACE 论文发表'],
@@ -116,7 +116,6 @@ const COPY = {
     theme: '主题',
     language: 'EN',
     photoAlt: '郭雨溪证件照',
-    aboutLabel: '背景',
     aboutTitle: '关于我',
     about: [
       '我是西南财经大学与特拉华大学 Management Information Systems 联合项目的大四学生，正在攻读双学位。',
@@ -126,21 +125,17 @@ const COPY = {
     education: '教育经历',
     skillTitle: '技术能力',
     awardsTitle: '荣誉',
-    researchLabel: '学术工作',
     researchTitle: '研究经历',
-    publicationLabel: '学术产出',
     publicationTitle: '发表论文',
-    publicationMeta: 'Applied and Computational Engineering · 第 76 卷 · 2024',
+    publicationMeta: 'Applied and Computational Engineering · Vol. 76 · 2024',
     publicationName: 'Interpretability Analysis in Transformers Based on Attention Visualization',
     publicationDesc: 'Guo, Yuxi. (2024). Applied and Computational Engineering, 76, pp. 92-102。该研究使用注意力可视化技术分析多种 Transformer 架构中的可解释性。',
     manuscript: 'Greedy-Gnorm 注意力头剪枝论文正在准备投稿 JMLR。',
-    projectLabel: '项目实践',
     projectTitle: '项目与实习',
-    contactLabel: '保持联系',
     contactTitle: '联系我',
     contactIntro: '如果你对研究合作、实习机会，或 NLP/ML 相关话题感兴趣，欢迎联系我。',
     form: ['姓名', '邮箱', '留言', '发送'],
-    footer: 'SWUFE-UD · MIS · NLP 研究者',
+    footer: 'SWUFE-UD · MIS · NLP Researcher',
   },
 } as const
 
@@ -316,10 +311,10 @@ function Hero({ lang }: { lang: Lang }) {
     <section className="min-h-screen flex flex-col justify-center relative overflow-hidden px-6 bg-surface">
       <div className="absolute inset-0 -z-10" style={{ backgroundImage: 'linear-gradient(rgba(37,99,235,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.05) 1px, transparent 1px)', backgroundSize: '64px 64px' }} />
 
-      <div className="max-w-6xl mx-auto w-full pt-24 pb-16 grid lg:grid-cols-[1fr_280px] gap-12 items-center">
+      <div className="max-w-6xl mx-auto w-full pt-24 pb-16 grid lg:grid-cols-[1fr_320px] gap-12 items-center">
         <div>
           <div className="animate-fade-up opacity-0" style={{ animationFillMode: 'forwards' }}>
-            <span className="inline-block text-xs font-sans uppercase tracking-[0.25em] text-accent font-bold mb-6">{copy.eyebrow}</span>
+            <span className="inline-block text-xs font-sans uppercase tracking-[0.25em] text-accent font-bold mb-6">{EYEBROWS.hero}</span>
           </div>
 
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-primary leading-none tracking-tight animate-fade-up opacity-0 animate-delay-100" style={{ animationFillMode: 'forwards' }}>
@@ -351,7 +346,7 @@ function Hero({ lang }: { lang: Lang }) {
         </div>
 
         <div className="animate-fade-up opacity-0 animate-delay-200 justify-self-center lg:justify-self-end" style={{ animationFillMode: 'forwards' }}>
-          <div className="w-44 sm:w-52 lg:w-60 aspect-[3/4] border border-border bg-panel p-2 shadow-sm">
+          <div className="w-52 sm:w-64 lg:w-72 aspect-[3/4] overflow-hidden rounded-2xl border border-border bg-panel shadow-lg shadow-primary/10">
             <img src={profilePhoto} alt={copy.photoAlt} className="h-full w-full object-cover object-top" />
           </div>
         </div>
@@ -365,7 +360,7 @@ function About({ lang }: { lang: Lang }) {
   return (
     <section id="about" className="py-24 px-6 bg-panel">
       <div className="max-w-6xl mx-auto">
-        <AnimatedSection><SectionHeading label={copy.aboutLabel} title={copy.aboutTitle} /></AnimatedSection>
+        <AnimatedSection><SectionHeading label={EYEBROWS.about} title={copy.aboutTitle} /></AnimatedSection>
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <AnimatedSection>
             <div className="space-y-5 text-secondary leading-relaxed">
@@ -421,7 +416,7 @@ function Research({ lang }: { lang: Lang }) {
   return (
     <section id="research" className="py-24 px-6 bg-surface">
       <div className="max-w-6xl mx-auto">
-        <AnimatedSection><SectionHeading label={copy.researchLabel} title={copy.researchTitle} /></AnimatedSection>
+        <AnimatedSection><SectionHeading label={EYEBROWS.research} title={copy.researchTitle} /></AnimatedSection>
         <div className="space-y-px">
           {RESEARCH.map((item, idx) => (
             <AnimatedSection key={item.title.en}>
@@ -461,7 +456,7 @@ function Publications({ lang }: { lang: Lang }) {
   return (
     <section id="publications" className="py-24 px-6 bg-panel">
       <div className="max-w-6xl mx-auto">
-        <AnimatedSection><SectionHeading label={copy.publicationLabel} title={copy.publicationTitle} /></AnimatedSection>
+        <AnimatedSection><SectionHeading label={EYEBROWS.publications} title={copy.publicationTitle} /></AnimatedSection>
         <AnimatedSection>
           <div className="border border-border p-8 hover:shadow-md transition-shadow group bg-panel">
             <div className="text-xs text-muted font-sans uppercase tracking-wider mb-2">{copy.publicationMeta}</div>
@@ -481,7 +476,7 @@ function Projects({ lang }: { lang: Lang }) {
   return (
     <section id="projects" className="py-24 px-6 bg-surface">
       <div className="max-w-6xl mx-auto">
-        <AnimatedSection><SectionHeading label={copy.projectLabel} title={copy.projectTitle} /></AnimatedSection>
+        <AnimatedSection><SectionHeading label={EYEBROWS.projects} title={copy.projectTitle} /></AnimatedSection>
         <div className="grid md:grid-cols-3 gap-6">
           {PROJECTS.map((project, idx) => (
             <AnimatedSection key={project.title.en}>
@@ -515,7 +510,7 @@ function Contact({ lang }: { lang: Lang }) {
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
           <div className="mb-12">
-            <span className="text-xs font-sans uppercase tracking-[0.2em] text-accent font-bold">{copy.contactLabel}</span>
+            <span className="text-xs font-sans uppercase tracking-[0.2em] text-accent font-bold">{EYEBROWS.contact}</span>
             <h2 className="font-serif text-3xl md:text-5xl mt-2 leading-tight">{copy.contactTitle}</h2>
             <div className="mt-4 w-10 h-0.5 bg-accent" />
           </div>
