@@ -110,12 +110,12 @@ const COPY = {
     stats: [
       ['6+', '研究项目'],
       ['1', 'ACE 论文发表'],
-      ['3.8', 'UD GPA'],
+      ['4.1', 'SWUFE GPA'],
       ['3', '国际项目经历'],
     ],
     theme: '主题',
     language: 'EN',
-    photoAlt: '郭雨溪证件照',
+    photoAlt: 'Guo Yuxi证件照',
     aboutTitle: '关于我',
     about: [
       '我是西南财经大学与特拉华大学 Management Information Systems 联合项目的大四学生，正在攻读双学位。',
